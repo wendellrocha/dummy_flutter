@@ -4,9 +4,11 @@ packages:
   abstract_bloc:
     dependency: "direct main"
     description:
-      path: "../abstract_bloc"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "950f52772ebf38c5ebd6ee2df0750ba83b20bbe5"
+      url: "git@github.com:wendellrocha/abstract_bloc.git"
+    source: git
     version: "0.0.1"
   archive:
     dependency: transitive

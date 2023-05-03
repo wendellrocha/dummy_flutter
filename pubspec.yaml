@@ -21,7 +21,7 @@ dependencies:
   intl: ^0.18.1
   lottie: ^2.3.2
   abstract_bloc:
-    path: "../abstract_bloc"
+    git: git@github.com:wendellrocha/abstract_bloc.git
 
 dev_dependencies:
   flutter_test:
