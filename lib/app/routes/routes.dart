@@ -4,10 +4,10 @@ import 'package:go_router/go_router.dart';
 import '../modules/home/home_screen.dart';
 import '../modules/posts/pages/post_details_page.dart';
 import '../modules/posts/posts_page.dart';
-import '../modules/products/products_page.dart';
+import '../modules/products/routes/products.dart';
 import '../modules/quotes/quotes_page.dart';
 import '../modules/splash/splash_page.dart';
-import '../modules/todos/domain/routes/todos.dart';
+import '../modules/todos/routes/todos.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -25,12 +25,7 @@ final GoRouter router = GoRouter(
       builder: (context, state, child) => HomeScreen(child: child),
       routes: [
         ...TodosRoutes().routes,
-        GoRoute(
-          path: '/products',
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: ProductsPage(),
-          ),
-        ),
+        ...ProductsRoutes().routes,
         GoRoute(
           path: '/posts',
           pageBuilder: (context, state) => const NoTransitionPage(

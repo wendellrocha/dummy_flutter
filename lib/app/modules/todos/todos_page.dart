@@ -15,19 +15,20 @@ class TodosPage extends StatefulWidget {
 }
 
 class _TodosPageState extends State<TodosPage> {
+  final TodosContainer container = TodosContainer();
   late final TodosController controller;
 
   @override
   void initState() {
     super.initState();
-    TodosContainer.init();
+    container.init();
     controller = GetIt.I.get<TodosController>();
     controller.fetchTodos();
   }
 
   @override
   void dispose() {
-    TodosContainer.reset();
+    container.dispose();
     super.dispose();
   }
 
