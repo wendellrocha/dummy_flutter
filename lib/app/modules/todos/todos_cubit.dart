@@ -1,24 +1,12 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:abstract_bloc/abstract_bloc.dart';
 
-import '../../../shared/http/errors/http_error.dart';
+import 'domain/entities/todo_model.dart';
 import 'domain/usecases/todo_usecase.dart';
-import 'todos_state.dart';
 
-class TodosCubit extends Cubit<TodosState> {
-  final TodoUseCase _usecase;
-  TodosCubit(this._usecase) : super(TodosInitialState());
+class TodosCubit extends Store<List<TodoModel>> {
+  final TodoUseCase _useCase;
 
-  void fetchTodos() async {
-    try {
-      emit(TodosLoadingState());
-      final response = await _usecase.getTodos();
-      emit(TodosLoadedState(response));
-    } catch (e) {
-      if (e is HttpError) {
-        emit(TodosErrorState(e.message!));
-      } else {
-        emit(TodosErrorState(e.toString()));
-      }
-    }
-  }
+  TodosCubit(this._useCase);
+
+  void fetchTodos() => execute(() => _useCase.getTodos());
 }

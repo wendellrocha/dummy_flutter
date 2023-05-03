@@ -7,7 +7,7 @@ import '../modules/posts/posts_page.dart';
 import '../modules/products/products_page.dart';
 import '../modules/quotes/quotes_page.dart';
 import '../modules/splash/splash_page.dart';
-import '../modules/todos/todos_page.dart';
+import '../modules/todos/domain/routes/todos.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -24,12 +24,7 @@ final GoRouter router = GoRouter(
       navigatorKey: _shellNavigatorKey,
       builder: (context, state, child) => HomeScreen(child: child),
       routes: [
-        GoRoute(
-          path: '/todos',
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: TodosPage(),
-          ),
-        ),
+        ...TodosRoutes().routes,
         GoRoute(
           path: '/products',
           pageBuilder: (context, state) => const NoTransitionPage(

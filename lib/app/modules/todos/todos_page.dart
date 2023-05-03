@@ -1,11 +1,10 @@
+import 'package:abstract_bloc/abstract_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
+import 'domain/entities/todo_model.dart';
 import 'todos_container.dart';
 import 'todos_controller.dart';
-import 'todos_cubit.dart';
-import 'todos_state.dart';
 
 class TodosPage extends StatefulWidget {
   final String title;
@@ -34,43 +33,36 @@ class _TodosPageState extends State<TodosPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TodosCubit, TodosState>(
-      bloc: controller.cubit,
-      builder: (context, state) {
-        if (state is TodosLoadingState) {
-          return const Center(child: CircularProgressIndicator.adaptive());
-        }
+    return ScopedBuilder<List<TodoModel>>(
+      cubit: controller.cubit,
+      onError: (context, state) {
+        return Center(
+          child: Text(state.message),
+        );
+      },
+      onLoading: (context) {
+        return const Center(child: CircularProgressIndicator.adaptive());
+      },
+      onSuccess: (context, state) {
+        return ListView.separated(
+          itemCount: state.content.length,
+          separatorBuilder: (context, index) => const Divider(),
+          padding: const EdgeInsets.all(8),
+          itemBuilder: (context, index) {
+            final item = state.content[index];
 
-        if (state is TodosErrorState) {
-          return Center(
-            child: Text(state.message),
-          );
-        }
-
-        if (state is TodosLoadedState) {
-          return ListView.separated(
-            itemCount: state.todos.length,
-            separatorBuilder: (BuildContext context, int index) =>
-                const Divider(),
-            padding: const EdgeInsets.all(8),
-            itemBuilder: (context, index) {
-              final item = state.todos[index];
-
-              return ListTile(
-                title: Text(
-                  item.todo!,
-                  style: TextStyle(
-                    decoration: item.completed ?? false
-                        ? TextDecoration.lineThrough
-                        : null,
-                  ),
+            return ListTile(
+              title: Text(
+                item.todo!,
+                style: TextStyle(
+                  decoration: item.completed ?? false
+                      ? TextDecoration.lineThrough
+                      : null,
                 ),
-              );
-            },
-          );
-        }
-
-        return const SizedBox();
+              ),
+            );
+          },
+        );
       },
     );
   }
