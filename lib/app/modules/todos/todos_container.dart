@@ -33,39 +33,7 @@ class TodosContainer extends InjectionContainer {
                 i.get(),
               ),
             ),
-        (i) => i.registerLazySingleton(() => TodosController(i.get())),
+        (i) => i.registerLazySingleton<TodosController>(
+            () => TodosController(i.get())),
       ];
 }
-
-// class TodosContainer {
-//   static void init() {
-//     GetIt.I.pushNewScope(
-//       init: (i) {
-//         i.registerLazySingleton<TodoDatasource>(
-//           () => TodoDatasourceImpl(
-//             i.get(),
-//           ),
-//         );
-//         i.registerLazySingleton<TodoRepository>(
-//           () => TodoRepositoryImpl(
-//             i.get(),
-//           ),
-//         );
-//         i.registerLazySingleton<TodoUseCase>(
-//           () => TodoUseCaseImpl(
-//             i.get(),
-//           ),
-//         );
-//         i.registerLazySingleton<TodosCubit>(
-//           () => TodosCubit(
-//             i.get(),
-//           ),
-//         );
-//         i.registerLazySingleton(() => TodosController(i.get()));
-//       },
-//       scopeName: 'todos',
-//     );
-//   }
-
-//   static void reset() => GetIt.I.popScope();
-// }

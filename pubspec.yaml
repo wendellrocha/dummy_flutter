@@ -22,6 +22,7 @@ dependencies:
   lottie: ^2.3.2
   abstract_bloc:
     git: git@github.com:wendellrocha/abstract_bloc.git
+  meta: ^1.8.0
 
 dev_dependencies:
   flutter_test:

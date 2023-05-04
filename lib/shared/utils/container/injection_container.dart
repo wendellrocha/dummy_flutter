@@ -1,15 +1,17 @@
 import 'dart:developer' as devtools show log;
 
 import 'package:get_it/get_it.dart';
+import 'package:meta/meta.dart';
 
-typedef Injection = void Function(GetIt);
+typedef Injection = void Function(GetIt i);
 
 abstract class InjectionContainer {
   final String scope;
 
   const InjectionContainer({required this.scope});
 
-  List<Injection> get binds => const [];
+  @visibleForOverriding
+  List<Injection> get binds;
 
   void init() {
     GetIt.I.pushNewScope(
