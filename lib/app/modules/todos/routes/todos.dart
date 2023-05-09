@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:scaffold/scaffold.dart';
 
-import '/shared/utils/routes/routes.dart';
 import '../todos_page.dart';
 
 class TodosRoutes implements Routes {

@@ -1,4 +1,4 @@
-import 'package:abstract_bloc/abstract_bloc.dart';
+import 'package:scaffold/scaffold.dart';
 
 import 'domain/entities/product_model.dart';
 import 'domain/usecases/product_usecase.dart';

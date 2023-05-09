@@ -1,6 +1,5 @@
-import 'package:abstract_bloc/abstract_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
+import 'package:scaffold/scaffold.dart';
 
 import 'domain/entities/todo_model.dart';
 import 'todos_container.dart';
@@ -14,22 +13,14 @@ class TodosPage extends StatefulWidget {
   State<TodosPage> createState() => _TodosPageState();
 }
 
-class _TodosPageState extends State<TodosPage> {
-  final TodosContainer container = TodosContainer();
-  late final TodosController controller;
+class _TodosPageState extends InjectionState<TodosPage, TodosController> {
+  @override
+  InjectionContainer get container => TodosContainer();
 
   @override
   void initState() {
     super.initState();
-    container.init();
-    controller = GetIt.I.get<TodosController>();
     controller.fetchTodos();
-  }
-
-  @override
-  void dispose() {
-    container.dispose();
-    super.dispose();
   }
 
   @override

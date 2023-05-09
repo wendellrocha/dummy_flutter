@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:scaffold/scaffold.dart';
 
-import '/shared/utils/routes/routes.dart';
 import '../domain/entities/product_model.dart';
 import '../pages/product_details/product_details_page.dart';
 import '../products_page.dart';
@@ -17,7 +17,7 @@ class ProductsRoutes extends Routes {
             GoRoute(
               path: 'product/details/:id/:title',
               builder: (context, state) => ProductDetailsPage(
-                id: state.params['id']!,
+                id: state.pathParameters['id']!,
                 product: state.extra as ProductModel,
               ),
             ),

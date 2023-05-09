@@ -11,17 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.2
-  go_router: ^6.5.8
-  get_it: ^7.3.0
   dio: ^5.1.1
   dartz: ^0.10.1
   shared_preferences: ^2.1.0
   intl: ^0.18.1
   lottie: ^2.3.2
-  abstract_bloc:
-    git: git@github.com:wendellrocha/abstract_bloc.git
+  scaffold:
+    git: git@github.com:wendellrocha/scaffold.git
   meta: ^1.8.0
 
 dev_dependencies:

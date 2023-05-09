@@ -1,4 +1,5 @@
-import '/shared/utils/container/injection_container.dart';
+import 'package:scaffold/scaffold.dart';
+
 import 'data/datasources/product_datasource_impl.dart';
 import 'data/repositories/product_repository_impl.dart';
 import 'data/usecases/product_usecase_impl.dart';
