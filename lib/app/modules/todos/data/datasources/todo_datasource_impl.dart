@@ -12,9 +12,10 @@ class TodoDatasourceImpl implements TodoDatasource {
   @override
   Future<List<TodoModel>> getTodos() async {
     final response = await _client.get(_todos);
+
     return response.fold(
       (l) => throw l,
-      (r) => (r.data['todos'] as List<dynamic>)
+      (r) => (r.data['todos'] as List)
           .map((json) => TodoModel.fromJson(json))
           .toList(),
     );

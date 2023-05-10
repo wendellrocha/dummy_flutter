@@ -46,6 +46,7 @@ class TodoModel {
     if (identical(other, this)) return true;
     if (other is! TodoModel) return false;
     final mapEquals = const DeepCollectionEquality().equals;
+
     return mapEquals(other.toJson(), toJson());
   }
 

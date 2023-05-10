@@ -5,9 +5,11 @@ import '../../utils/utils.dart';
 class FloatingActionButtonWidget extends StatelessWidget {
   final Widget child;
   final VoidCallback callback;
-  const FloatingActionButtonWidget(
-      {Key? key, required this.child, required this.callback})
-      : super(key: key);
+  const FloatingActionButtonWidget({
+    Key? key,
+    required this.child,
+    required this.callback,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

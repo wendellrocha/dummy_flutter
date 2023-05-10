@@ -47,6 +47,7 @@ class ModalWidget extends StatelessWidget {
               ' must not be null',
             );
           }
+
           return true;
         }()),
         super(key: key);

@@ -42,7 +42,7 @@ class BorderButtonWidget extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: !showProgress! ? callback! : () {},
+        onPressed: !showProgress! ? callback! : null,
         child: showProgress!
             ? const Center(child: CircularProgressIndicator.adaptive())
             : Center(

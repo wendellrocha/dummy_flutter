@@ -124,7 +124,7 @@ class _BottomDialogWidget extends StatelessWidget {
                           callback: () => buttonOkCallback.call(),
                         ),
                       ),
-              )
+              ),
             ],
           ),
         ),

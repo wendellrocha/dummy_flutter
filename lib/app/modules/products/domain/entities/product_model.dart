@@ -41,7 +41,7 @@ class ProductModel {
         description: json['description'] as String?,
         discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
         id: json['id'] as int?,
-        images: List.from(json['images'] as List<dynamic>),
+        images: List.from(json['images'] as List),
         price: json['price'] as int?,
         rating: (json['rating'] as num?)?.toDouble(),
         stock: json['stock'] as int?,
@@ -96,6 +96,7 @@ class ProductModel {
     if (identical(other, this)) return true;
     if (other is! ProductModel) return false;
     final mapEquals = const DeepCollectionEquality().equals;
+
     return mapEquals(other.toJson(), toJson());
   }
 

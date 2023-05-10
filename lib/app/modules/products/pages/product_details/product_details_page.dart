@@ -42,29 +42,25 @@ class ProductDetailsPageState extends State<ProductDetailsPage> {
                 SizedBox(
                   height: 350,
                   child: PageView.builder(
-                    itemCount: widget.product.images!.length,
-                    pageSnapping: true,
-                    controller: controller,
-                    onPageChanged: (index) {
-                      setState(() {
-                        currentIndex = index;
-                      });
-                    },
-                    itemBuilder: (context, index) {
-                      final image = widget.product.images![index];
-
-                      return AnimatedContainer(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOutCubic,
-                        margin: EdgeInsets.all(currentIndex == index ? 10 : 20),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(image),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                      controller: controller,
+                      pageSnapping: true,
+                      onPageChanged: (index) {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        final image = widget.product.images![index];
+                        return AnimatedContainer(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(image))),
+                            margin:
+                                EdgeInsets.all(currentIndex == index ? 10 : 20),
+                            curve: Curves.easeInOutCubic,
+                            duration: const Duration(milliseconds: 500));
+                      },
+                      itemCount: widget.product.images!.length),
                 ),
                 const SizedBox(height: 5),
                 Center(
@@ -107,7 +103,7 @@ class ProductDetailsPageState extends State<ProductDetailsPage> {
                       Icons.star,
                       color: Colors.yellow,
                       size: 18,
-                    )
+                    ),
                   ],
                 ),
                 const SizedBox(height: 5),
@@ -141,7 +137,7 @@ class ProductDetailsPageState extends State<ProductDetailsPage> {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

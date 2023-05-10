@@ -150,7 +150,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   context.go(widget.logoutItem!.route);
                 },
               ),
-            )
+            ),
         ],
       ),
     );

@@ -16,11 +16,9 @@ class SharedPreferencesServiceImpl implements LocalStorageService {
 
   @override
   Map<String, dynamic>? getObject(String key) {
-    if (_prefs.getString(key) != null) {
-      return json.decode(_prefs.getString(key)!);
-    } else {
-      return null;
-    }
+    return _prefs.getString(key) != null
+        ? json.decode(_prefs.getString(key)!)
+        : null;
   }
 
   @override

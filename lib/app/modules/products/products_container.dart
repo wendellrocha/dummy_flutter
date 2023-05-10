@@ -38,6 +38,6 @@ class ProductsContainer extends InjectionContainer {
               () => ProductsCubit(
                 i.get(),
               ),
-            )
+            ),
       ];
 }

@@ -12,9 +12,10 @@ class ProductDatasourceImpl implements ProductDatasource {
   @override
   Future<List<ProductModel>> getProducts() async {
     final response = await _client.get(_product);
+
     return response.fold(
       (l) => throw l,
-      (r) => (r.data['products'] as List<dynamic>)
+      (r) => (r.data['products'] as List)
           .map<ProductModel>((json) => ProductModel.fromJson(json))
           .toList(),
     );

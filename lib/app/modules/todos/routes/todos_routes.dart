@@ -11,6 +11,6 @@ class TodosRoutes implements Routes {
           pageBuilder: (context, state) => const NoTransitionPage(
             child: TodosPage(),
           ),
-        )
+        ),
       ];
 }

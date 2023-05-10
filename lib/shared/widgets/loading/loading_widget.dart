@@ -34,12 +34,15 @@ class LoadingWidget {
           const Duration(milliseconds: 500),
           () => Navigator.of(_context!).pop(),
         );
+
         return true;
       }
       'LoadingWidget already dismissed'.log;
+
       return false;
     } catch (e) {
       'Seems there is an issue dismissing LoadingWidget'.log;
+
       return false;
     }
   }

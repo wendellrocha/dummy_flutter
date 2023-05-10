@@ -7,12 +7,9 @@ import '../errors/http_error.dart';
 class DioInterceptor extends Interceptor {
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    dynamic data;
-    if (err.response?.data is String) {
-      data = json.decode(err.response?.data);
-    } else {
-      data = err.response?.data;
-    }
+    var data = err.response?.data is String
+        ? json.decode(err.response?.data)
+        : err.response?.data;
 
     switch (err.type) {
       case DioErrorType.receiveTimeout:

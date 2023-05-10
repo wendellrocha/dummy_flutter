@@ -86,7 +86,8 @@ class DioAdapter extends IHttpClientAdapter {
 
   @protected
   Future<Either<HttpError, HttpResponse>> _call(
-      Future<Response> Function() callback) async {
+    Future<Response> Function() callback,
+  ) async {
     try {
       final response = await callback();
 

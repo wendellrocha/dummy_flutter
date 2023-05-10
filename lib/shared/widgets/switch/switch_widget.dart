@@ -41,7 +41,7 @@ class SwitchWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ]
+          ],
         ],
       ),
     );

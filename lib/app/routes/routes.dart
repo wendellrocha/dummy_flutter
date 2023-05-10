@@ -4,10 +4,10 @@ import 'package:go_router/go_router.dart';
 import '../modules/home/home_screen.dart';
 import '../modules/posts/pages/post_details_page.dart';
 import '../modules/posts/posts_page.dart';
-import '../modules/products/routes/products.dart';
+import '../modules/products/routes/products_routes.dart';
 import '../modules/quotes/quotes_page.dart';
 import '../modules/splash/splash_page.dart';
-import '../modules/todos/routes/todos.dart';
+import '../modules/todos/routes/todos_routes.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
@@ -34,7 +34,7 @@ final GoRouter router = GoRouter(
           routes: [
             GoRoute(
               path: 'details',
-              builder: (context, state) => const PostDetails(),
+              builder: (context, state) => const PostDetailsPage(),
             ),
           ],
         ),

@@ -75,7 +75,7 @@ class SolidButtonWidget extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: !showProgress ? () => callback() : () {},
+        onPressed: !showProgress ? () => callback() : null,
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
           switchInCurve: Curves.easeInBack,

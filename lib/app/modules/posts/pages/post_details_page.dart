@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PostDetails extends StatefulWidget {
-  const PostDetails({super.key});
+class PostDetailsPage extends StatefulWidget {
+  const PostDetailsPage({super.key});
 
   @override
-  State<PostDetails> createState() => _PostDetailsState();
+  State<PostDetailsPage> createState() => _PostDetailsPageState();
 }
 
-class _PostDetailsState extends State<PostDetails> {
+class _PostDetailsPageState extends State<PostDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

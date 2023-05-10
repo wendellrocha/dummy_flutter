@@ -46,7 +46,7 @@ class BottomNavigationItemWidget extends StatelessWidget {
                     fontSize: 9,
                     color: color,
                   ),
-                )
+                ),
               ],
             ),
           ),

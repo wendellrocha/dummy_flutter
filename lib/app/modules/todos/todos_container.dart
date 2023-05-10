@@ -35,6 +35,7 @@ class TodosContainer extends InjectionContainer {
               ),
             ),
         (i) => i.registerLazySingleton<TodosController>(
-            () => TodosController(i.get())),
+              () => TodosController(i.get()),
+            ),
       ];
 }

@@ -46,6 +46,7 @@ class UserModel {
     if (identical(other, this)) return true;
     if (other is! UserModel) return false;
     final mapEquals = const DeepCollectionEquality().equals;
+
     return mapEquals(other.toJson(), toJson());
   }
 

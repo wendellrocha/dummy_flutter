@@ -14,6 +14,7 @@ class UserDatasourceImpl implements UserDatasource {
   @override
   Future<UserModel?> me() async {
     final response = await _client.get(_userMe);
+
     return response.fold((l) => throw l, (r) {
       final result = r.data['result'];
 
@@ -26,9 +27,11 @@ class UserDatasourceImpl implements UserDatasource {
     final response = await _client.post(
       _loginWithToken.replaceAll(':token', token),
     );
+
     return response.fold((l) => null, (r) {
       final token = r.data['token'];
       _client.setAuthorization(token);
+
       return token;
     });
   }

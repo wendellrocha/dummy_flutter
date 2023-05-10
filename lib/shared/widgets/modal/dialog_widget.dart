@@ -74,7 +74,7 @@ class _DialogWidget extends StatelessWidget {
                           icon: const Icon(Icons.close),
                           onPressed: () => Navigator.pop(context),
                         ),
-                      )
+                      ),
                     ],
                   ),
                   const SizedBox(height: 8),
@@ -149,7 +149,7 @@ class _DialogWidget extends StatelessWidget {
                         ),
                       ),
               ),
-            )
+            ),
           ],
         ),
       ),

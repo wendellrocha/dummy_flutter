@@ -109,7 +109,7 @@ class _ResponsiveWidgetState extends State<ResponsiveWidget> {
                         ),
                         Expanded(
                           child: widget.largeScreen,
-                        )
+                        ),
                       ],
                     ),
                   ),
